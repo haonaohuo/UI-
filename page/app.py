@@ -1,3 +1,4 @@
+import yaml
 from appium import webdriver
 
 from page.base_page import BasePage
@@ -17,6 +18,7 @@ class App(BasePage):
             caps["appPackage"] = self._package
             caps["appActivity"] = self._activity
             caps['noReset'] = True
+            caps['udid'] = yaml.safe_load(open("../page/configuration.yaml"))['caps']['udid']
             # caps['skipServerInstallation'] = True
             # caps['skipDeviceInitialization'] = True
 
